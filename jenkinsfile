@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Fecth') {
+            steps {
+                echo 'fecth from repo '
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building the program'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Test the progeerm'
+                bat 'javac Hello.java'
+            }
+        }
+        
+        stage('Execute') {
+            steps {
+                echo 'Execute the program.....'
+                bat 'javac Hello.java'
+            }
+        }
+        
+        post {
+            success{
+                echo 'pipleline built Successfully'
+            }
+            failure{
+                echo 'pipleline  failed'
+            }
+            }
+        }
+    }
+    
+}
