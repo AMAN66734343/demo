@@ -1,0 +1,21 @@
+pipeline{
+agent any 
+
+stages{
+   stage('Checkout'){
+   steps{
+git ' ' 
+}
+}
+ stage ('Public'){
+steps{
+publishHTML([
+allowmissing:true,
+alwaysLinktolastBuild:false,
+KeepAll:false,
+reportDir:'.',
+reportfiles:'Index.html',
+reportName:'MY HTMl PAGE'
+])
+}
+}
